@@ -1,0 +1,13 @@
+
+  
+  <h1><%= forum.t %></h1>
+  <form
+  method="POST"
+  action="/forums/<%= forum._id %>/comments"
+  >
+<label>Whats on your mind?</label>
+<textarea name="content"></textarea>
+<input type="submit">
+<% if (forum.comments.length) { %>
+    <li>comment date author.name</li><a href=" "<button>x</button>>
+    <%}%>

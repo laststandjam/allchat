@@ -7,13 +7,32 @@ const index = (req, res) => {
       return res.redirect("/forums/new");
     } else {
       res.render("forums/index", {
-        forums
+        forums,
+        user: req.user
       });
-      return console.log(forums);
     }
   });
 };
+const newForum = (req, res) => {
+  res.render("forums/new", { title: "Add Topic", user: req.user });
+};
+const create = (req, res) => {
+  var forum = new Forum(req.body);
+  forum.save(err => {
+    if (err) return res.redirect("/forums/new");
+    res.redirect(`/forums/${forum._id}`);
+  });
+};
+const show = (req, res) => {
+  Forum.findById(req.params.id, (err, forum) => {
 
+    res.render('forums/show', {forum
+    })
+  })
+}
 module.exports = {
-  index
+  index,
+  new: newForum,
+  create,
+  show
 };
