@@ -1,0 +1,14 @@
+<h1>What intrests You</h1>
+ 
+    <ul>
+        <% forums.forEach((f)=>{%>
+        <li>
+            <%= f.name%>
+            <%= f.subject%>
+            <a href="/show/<%= f._id%>">Join</a> 
+      </li>
+        <%})%>
+    </ul>
+
+    <h2>Nothing Why dont you tell us then?</h2>
+</br><a href = "/forums/new">Start discusion</a>

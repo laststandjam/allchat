@@ -3,14 +3,12 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: "User" },
-  content: String,
-  timestamps: true
+  content: String
 });
 
-const fourmSchema = new Schema({
+const forumSchema = new Schema({
   name: String,
   subject: String,
-
   comments: [{ commentSchema }],
   members: [
     {
@@ -20,4 +18,4 @@ const fourmSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("User", fourmSchema);
+module.exports = mongoose.model("Forum", forumSchema);
