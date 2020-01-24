@@ -20,4 +20,4 @@ const fourmSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", fourmSchema);

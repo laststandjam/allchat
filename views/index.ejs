@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Welcome to AllChat</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1>Welcome To BookClub</h1>
+    <h3>Please Sign In<h3>
     <a href="/auth/google">
-      <button class="button button-blue button-bordered">
-        <span class="button--inner">Log in With google</span>
+      <button >
+        <span>Log in With google</span>
       </button>
+      <%if (user){%>
+        <a href="/fourms/index">
+        <button>Now Join The Fun</button>
+        </a>
+      <%}%>
     </a>
-      
-     
-  </body>
-</html>
-
   </body>
 </html>
