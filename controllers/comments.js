@@ -1,15 +1,17 @@
-var Forum = require('../models/forum')
+  
+const Fourm = require("../models/forum");
+const Comment = require("../models/comment");
 
-const create = (req, res) => {
-    console.log("hit")
-  Forum.findById(req.params.id, (err, forum) => {
-    forum.comments.push(req.body)
-    forum.save(err => {
-      res.redirect(`/forums/${forum._id}`)
-    })
-  })
-}
+const create = async (req, res) => {
+ 
+    const createComment = await Comment.create(req.body);
+    const fourm = await Fourm.findById(req.params.id);
+    fourm.comments.push(createComment);
+    await fourm.save();
+    res.redirect(`/forums/${fourm._id}`);
+  
+};
 
 module.exports = {
-  create,
+  create
 }

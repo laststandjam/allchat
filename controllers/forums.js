@@ -23,13 +23,14 @@ const create = (req, res) => {
     res.redirect(`/forums/${forum._id}`);
   });
 };
-const show = (req, res) => {
-  Forum.findById(req.params.id, (err, forum) => {
-
-    res.render('forums/show', {forum
-    })
-  })
-}
+const show = async (req, res) => {
+  const forum = await Forum.findById(req.params.id).populate("comments");
+  res.render("forums/show", {
+    user: req.user,
+    forum,
+   
+  });
+};
 module.exports = {
   index,
   new: newForum,
