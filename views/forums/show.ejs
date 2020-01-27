@@ -2,12 +2,21 @@
   
   <h1><%= forum.t %></h1>
   <form
-  method="POST"
   action="/forums/<%= forum._id %>/comments"
+  method="POST"
   >
 <label>Whats on your mind?</label>
 <textarea name="content"></textarea>
-<input type="submit">
+<button type="submit">submit</button>
+</form>
+<ul>
 <% if (forum.comments.length) { %>
-    <li>comment date author.name</li><a href=" "<button>x</button>>
-    <%}%>
+      <% forum.comments.forEach(function(c) { %>
+          <li><%= c %></li>
+          <li><%= c %></li>
+        <% }); %>
+        <%}%>
+   </ul>
+  
+  
+ 

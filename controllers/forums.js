@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const Forum = require("../models/forums");
+const Forum = require("../models/forum");
 
 const index = (req, res) => {
   Forum.find({}, (err, forums) => {

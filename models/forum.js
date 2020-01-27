@@ -18,4 +18,5 @@ const forumSchema = new Schema({
   ]
 });
 
+
 module.exports = mongoose.model("Forum", forumSchema);
