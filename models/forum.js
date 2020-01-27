@@ -1,15 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-const commentSchema = new Schema({
-  author: { type: Schema.Types.ObjectId, ref: "User" },
-  content: String
-});
+;
 
 const forumSchema = new Schema({
   name: String,
   subject: String,
-  comments: [{ commentSchema }],
+  comments: [{ type:Schema.Types.ObjectId }],
   members: [
     {
       type: Schema.Types.ObjectId,

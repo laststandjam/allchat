@@ -1,6 +1,6 @@
 
   
-  <h1><%= forum.titles %></h1>
+  <h1><%= forum.t %></h1>
   <form
   action="/forums/<%= forum._id %>/comments"
   method="POST"
@@ -10,11 +10,12 @@
 <button type="submit">submit</button>
 </form>
 <ul>
-  <% if (forum.comments.length) { %> <% forum.comments.forEach( (r) => { %>
-    <li><%=r.content%></li>
-    <% }); %> <% } else { %>
-    <h3>No comments Yet</h3>
-    <% } %>
-    </li>
+<% if (forum.comments.length) { %>
+      <% forum.comments.forEach(function(c) { %>
+          <li><%= c %></li>
+        <% }); %>
+        <%}%>
+   </ul>
+  
   
  

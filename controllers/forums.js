@@ -24,13 +24,13 @@ const create = (req, res) => {
   });
 };
 const show = async (req, res) => {
-  const forum = await Forum.findById(req.params.id).populate("comments");
-  res.render("forums/show", {
-    user: req.user,
-    forum,
-   
-  });
-};
+  console.log(req.params.id)
+    const forum = await Forum.findById(req.params.id)
+    res.render("forums/show", {
+      user: req.user,
+      forum,
+    });
+  };
 module.exports = {
   index,
   new: newForum,
