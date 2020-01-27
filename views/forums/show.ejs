@@ -12,7 +12,7 @@
 <ul>
 <% if (forum.comments.length) { %>
       <% forum.comments.forEach(function(c) { %>
-          <li><%= c %></li>
+          <li><%= c.content %></li>
         <% }); %>
         <%}%>
    </ul>
