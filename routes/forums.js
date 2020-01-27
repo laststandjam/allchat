@@ -8,4 +8,5 @@ router.get('/new', forumsCtrl.new)
 router.post('/', forumsCtrl.create)
 router.get('/:id', forumsCtrl.show)
 
+router.delete("/:id", forumsCtrl.delete)
 module.exports = router

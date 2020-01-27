@@ -10,9 +10,11 @@
 <button type="submit">submit</button>
 </form>
 <ul>
-<% if (forum.comments.length) { %>
+<% if (forum.comments.length ) { %>
       <% forum.comments.forEach(function(c) { %>
-          <li><%= c.content %></li>
+          <li><%= c.content %> <form action="/forums/<%= forum._id %>" ?_method="DELETE" METHOD="POST">
+          <button type="submit">X</button>
+          </form>
         <% }); %>
         <%}%>
    </ul>

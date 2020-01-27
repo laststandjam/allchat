@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const forumSchema = new Schema({
   name: String,
   subject: String,
-  comments: {
+  comments: [{
     type: Schema.Types.ObjectId,
     ref: "Comment"
-  },
+  }],
   members: [
     {
       type: Schema.Types.ObjectId,

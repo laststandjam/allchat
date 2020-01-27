@@ -24,16 +24,23 @@ const create = (req, res) => {
   });
 };
 const show = async (req, res) => {
-  console.log(req.params.id)
-    const forum = await Forum.findById(req.params.id)
-    res.render("forums/show", {
-      user: req.user,
-      forum,
-    });
-  };
+  const forum = await Forum.findById(req.params.id).populate("comments");
+  console.log(forum);
+  res.render("forums/show", {
+    user: req.user,
+    forum
+  });
+};
+const deleteComment = (req, res) => {
+  console.log("hit delete")
+  Forum.findOneAndDelete(req.params.id, (err) => {
+    res.redirect(`/forums/${forum._id}`);  })
+  }
+
 module.exports = {
   index,
   new: newForum,
   create,
-  show
+  show,
+  delete: deleteComment
 };
