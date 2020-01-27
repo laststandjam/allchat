@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Forum = require("../models/forum");
+const Comment = require("../models/comment")
 
 const index = (req, res) => {
   Forum.find({}, (err, forums) => {
@@ -25,16 +26,21 @@ const create = (req, res) => {
 };
 const show = async (req, res) => {
   const forum = await Forum.findById(req.params.id).populate("comments");
-  console.log(forum);
   res.render("forums/show", {
     user: req.user,
     forum
   });
 };
 const deleteComment = (req, res) => {
-  console.log("hit delete")
-  Forum.findOneAndDelete(req.params.id, (err) => {
-    res.redirect(`/forums/${forum._id}`);  })
+  Forum.find({comments: req.params.id}, (err, forum)=>{
+    console.log(forum)
+    let array = forum[0].comments
+    array.splice(array.indexOf(req.params.id), 1)
+    forum[0].save()
+    Comment.deleteOne({_id: req.params.id}, err=>{
+      res.redirect(`/forums/${forum[0]._id}`)
+    })
+  } )
   }
 
 module.exports = {

@@ -12,7 +12,7 @@
 <ul>
 <% if (forum.comments.length ) { %>
       <% forum.comments.forEach(function(c) { %>
-          <li><%= c.content %> <form action="/forums/<%= forum._id %>" ?_method="DELETE" METHOD="POST">
+          <li><%= c.content %> <form action="/forums/<%= c._id%>?_method=DELETE" method="POST">
           <button type="submit">X</button>
           </form>
         <% }); %>
