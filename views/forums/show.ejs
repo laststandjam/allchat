@@ -1,14 +1,7 @@
 
   
   <h1><%= forum.t %></h1>
-  <form
-  action="/forums/<%= forum._id %>/comments"
-  method="POST"
-  >
-<label>Whats on your mind?</label>
-<textarea name="content"></textarea>
-<button type="submit">submit</button>
-</form>
+  
 <ul>
 <% if (forum.comments.length ) { %>
       <% forum.comments.forEach(function(c) { %>
@@ -18,6 +11,13 @@
         <% }); %>
         <%}%>
    </ul>
-  
+  <form
+  action="/forums/<%= forum._id %>/comments"
+  method="POST"
+  >
+<label>Whats on your mind?</label>
+<textarea name="content"></textarea>
+<button type="submit">submit</button>
+</form>
   
  

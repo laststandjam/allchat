@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to AllChat</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>AllChat</title>
+    <link rel='stylesheet' href='/stylesheets/home.css' />
   </head>
   <body>
+    
+    <h1>Welcome To Allchat<h1>
+   <div class="intro"> 
+     <p>Allchat is your one stop shop to all discusion find a forum that intreset you and chat with others who share your intrests</p>
+    
     <h3>Please Sign In<h3>
-    <a href="/auth/google">
-      <button >
-        <span>Log in With google</span>
-      </button>
+    
       <%if (user){%>
         <a href="/forums">
-        <button>Now Join The Fun</button>
+        <button> Join The Fun</button>
         </a>
-      <%}%>
+        <%}else{%>
+          <a href="/auth/google">
+      <button >
+        Log in With google
+      </button>
+        <%}%>
+    </div>
     </a>
   </body>
 </html>
