@@ -1,14 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AllChat</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
 <h1>What intrests You</h1>
  
     <ul>
         <% forums.forEach((f)=>{%>
+            <div class="card">
         <li>
             <%= f.name%>
             <%= f.subject%>
             <a href="/forums/<%= f._id%>">Join</a> 
       </li>
+        </div>
         <%})%>
     </ul>
 
     <h2>Nothing Why dont you tell us then?</h2>
-</br><a href = "/forums/new">Start discusion</a>
+</br><a href = "/forums/new"><button>Start discusion</button></a>
