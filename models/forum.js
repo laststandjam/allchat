@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const forumSchema = new Schema({
   name: String,
   subject: String,
+  picture: String,
+  
   comments: [{
     type: Schema.Types.ObjectId,
     ref: "Comment"

@@ -6,18 +6,18 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
 <h1>What intrests You</h1>
- 
-    <ul>
+    <div class="container">
         <% forums.forEach((f)=>{%>
             <div class="card">
-        <li>
-            <%= f.name%>
-            <%= f.subject%>
+              
+              <%= f.name%>
+              <%= f.subject%>
             <a href="/forums/<%= f._id%>">Join</a> 
-      </li>
+      
         </div>
+    </div>
         <%})%>
-    </ul>
+    
 
     <h2>Nothing Why dont you tell us then?</h2>
 </br><a href = "/forums/new"><button>Start discusion</button></a>

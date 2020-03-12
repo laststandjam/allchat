@@ -1,10 +1,15 @@
 var createError = require('http-errors');
 var express = require('express');
+const bodyParser = require("body-parser")
 var path = require('path');
 var logger = require('morgan');
 const session = require('express-session')
 const passport = require('passport')
 const cookieParser = require('cookie-parser')
+const crypto= require('crypto')
+const multer = require('multer')
+const GridFsStorage = require('multer-gridfs-storage')
+const Grid = ('gridfs-stream')
 const methodOverride = require('method-override')
 
 require('dotenv').config()
@@ -38,6 +43,7 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
@@ -45,7 +51,11 @@ app.use('/users', usersRouter);
 app.use('/forums', forumsRouter)
 app.use('/', commentsRouter)
 
-
+// init gfs
+let gfs
+mongoose.once('open', function(){
+  gfs = Grid(mongoose.db, mongoose.mongo)
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
