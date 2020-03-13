@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const forumSchema = new Schema({
   name: String,
   subject: String,
-  picture: String,
+  img: String,
   
   comments: [{
     type: Schema.Types.ObjectId,
