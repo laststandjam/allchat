@@ -42,10 +42,12 @@ app.use(
     saveUninitialized: true,
   })
 )
+app.use('/uploads', express.static('uploads'))
+app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(bodyParser.json())
-app.use(multer({ dest: './uploads/'}).single('img'));
+
+
 app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);

@@ -9,7 +9,7 @@
     <div class="container">
         <% forums.forEach((f)=>{%>
             <div class="card">
-              
+              <img src='<%= f.img%>'>
               <%= f.name%>
               <%= f.subject%>
             <a href="/forums/<%= f._id%>">Join</a> 

@@ -1,20 +1,10 @@
 const User = require("../models/user");
 const Forum = require("../models/forum");
 const Comment = require("../models/comment")
-const fs = require ('fs')
 const multer = require('multer')
+const createMiddleware = require("../middleware/create")
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-      cb(null, './uploads');
-  },
-  filename: (req, file, cb) => {
-      cb(null, `${new Date().toISOString().replace(/:/g, '-')}${file.originalname}`);
-  }
-});
-const upload= multer({
-  storage: storage
-})
+
 const index = (req, res) => {
   Forum.find({}, (err, forums) => {
     if (err) {
@@ -30,10 +20,16 @@ const index = (req, res) => {
 const newForum = (req, res) => {
   res.render("forums/new", { title: "Add Topic", user: req.user });
 };
-const create = (req, res) => {
-  var forum = new Forum(req.body)
-  forum.img= req.files.path
-  forum.img.contentType = 'image/png'
+const create = async (req, res,) => {
+  console.log(req.file.path)
+  console.log(req.body)
+  const forum = new Forum({
+    name: req.body.name,
+    subject: req.body.subject,
+    img: req.file.path
+  })
+  
+  
   forum.save(err => {
     if (err) return res.redirect("/forums/new");
     res.redirect(`/forums/${forum._id}`);
