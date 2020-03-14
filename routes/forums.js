@@ -11,7 +11,9 @@ const storage= multer.diskStorage({
     filename:function(req, file, cb){
         cb(null, new Date().toISOString()+ file.originalname)}
 })
-const upload = multer({storage: storage})
+const upload = multer({storage: storage, limits:{
+    fileSize: 1024 * 1024 *5
+}})
 
 /* GET home page. */
 router.get('/',forumsCtrl.index )

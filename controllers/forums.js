@@ -21,11 +21,12 @@ const newForum = (req, res) => {
   res.render("forums/new", { title: "Add Topic", user: req.user });
 };
 const create = async (req, res,) => {
-  console.log(req.file)
+  console.log(req.file.path)
   console.log(req.body)
   const forum = new Forum({
     name: req.body.name,
-    subject: req.body.subject
+    subject: req.body.subject,
+    img: req.file.path
   })
   
   

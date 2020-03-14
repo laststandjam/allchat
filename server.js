@@ -42,7 +42,7 @@ app.use(
     saveUninitialized: true,
   })
 )
-
+app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use(passport.session())
