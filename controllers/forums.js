@@ -25,7 +25,7 @@ const create = async (req, res,) => {
   console.log(req.body)
   const forum = new Forum({
     name: req.body.name,
-    subject: req.body.price
+    subject: req.body.subject
   })
   
   
