@@ -1,23 +1,25 @@
-@import "compass";
-@import "breakpoint";
 
+* { border: 1px solid black; }
 body{
     background-color: lightcoral;
 }
 
-ul{
-    list-style: none;
+.container{
+    display: flex 
+}
+.cards{
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {
-    box-shadow: 10px;
-   border: 1px solid black;
-   padding: 15 px;
-   margin-bottom: 10px;
-   background:whitesmoke;
-   text-decoration-color: oldlace;
-   
-}
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
 
 li{
   color: oldlace;

@@ -7,17 +7,20 @@
   </head>
 <h1>What intrests You</h1>
     <div class="container">
+      <div class="cards">
         <% forums.forEach((f)=>{%>
             <div class="card">
-              <img src='<%= f.img%>'>
-              <%= f.name%>
-              <%= f.subject%>
+              <img src='<%= f.img%>' width='300'>
+              <h1><%=f.name%></h1>
+              <h2><%=f.subject%></h2>
             <a href="/forums/<%= f._id%>">Join</a> 
-      
-        </div>
-    </div>
+            </div>
+       
         <%})%>
-    
+     
+      </div> 
+    </div>
+    </div>
 
     <h2>Nothing Why dont you tell us then?</h2>
 </br><a href = "/forums/new"><button>Start discusion</button></a>
