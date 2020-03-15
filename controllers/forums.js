@@ -2,7 +2,7 @@ const User = require("../models/user");
 const Forum = require("../models/forum");
 const Comment = require("../models/comment")
 const multer = require('multer')
-const createMiddleware = require("../middleware/create")
+
 
 
 const index = (req, res) => {
