@@ -55,7 +55,6 @@ app.use('/users', usersRouter);
 app.use('/forums', forumsRouter)
 app.use('/', commentsRouter)
 
-// init gfs
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
